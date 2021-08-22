@@ -13,7 +13,7 @@
         $mail = new PHPMailer;
         $mail->SMTPDebug = 4;
         $mail->isSMTP();
-        $mail->Host = "server.web-hosting.com";
+        $mail->Host = "mailtest.codingoverflow.com";
         $mail->SMTPAuth = true;
         $mail->Username = "bfoot171@gmail.com";
         $mail->Password = "greenmac20";
