@@ -10,22 +10,23 @@
         require_once "PHPMailer/SMTP.php";
         require_once "PHPMailer/Exception.php";
 
-        $mail = new PHPMailer();
+        $mail = new PHPMailer;
+        $mail->SMTPDebug = 4;
         $mail->isSMTP();
         $mail->Host = "smtp.gmail.com";
         $mail->SMTPAuth = true;
         $mail->Username = "bfoot171@gmail.com";
         $mail->Password = "greenmac20";
-        $mail->Port = 465;
-        $mail->SMTPSecure = "ssl";
+        $mail->Port = 587;
+        $mail->SMTPSecure = "tls";
 
         $mail->isHTML(true);
-        $mail->setFrom($to);
+        $mail->setFrom($from, 'Must Funjabi');
         $mail->addAddress("bfoot171@gmail.com");
-        $mail->Subject = ("$to (Hello)");
+        $mail->Subject = 'First test';
         $mail->Body = $message;
-
-        if ($mail->send()){
+        $send = $mail->send();
+        if ($send){
             $status = "Success";
             $response = "Email is sent";
         }
